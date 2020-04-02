@@ -13,12 +13,11 @@ const findUser = (id) => new Promise((resolve, reject) => {
   if (user) {
     return resolve(user)
   }
-  reject(new Error(`No user with id "${id}"`))
+ return reject(new Error(`No user with id "${id}"`))
 })
 
 // simulate async db call with promise
 const deleteUser = (id) => new Promise((resolve, reject) => {
-  const id = fixId(id)
   const i = users.findIndex(user => user.id === id)
 
   if (i < 0) {
